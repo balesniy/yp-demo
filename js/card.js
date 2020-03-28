@@ -1,8 +1,8 @@
 class Card {
-  constructor({ name, link }, index) {
+  constructor({ name, link }, id) {
     this.name = name;
     this.link = link;
-    this.index = index;
+    this.id = id;
     this._element = null;
     this.template = document.querySelector('#card');
   }
@@ -19,7 +19,7 @@ class Card {
 
   create() {
     this._element = this.template.cloneNode(true).content.firstElementChild;
-    this._element.dataset.index = this.index;
+    this._element.dataset.id = this.id;
 
     const imgCard = this._element.querySelector('.place-card__image');
     imgCard.style.backgroundImage = `url(${this.link})`;
